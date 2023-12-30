@@ -13,7 +13,6 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <BimesterGrid>
-        <Bimester />
     </BimesterGrid>
   </React.StrictMode>
 );

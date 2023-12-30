@@ -1,6 +1,6 @@
 import '../styles/Modal.scss';
 
 export default (props: any) =>
-    <div className='moodal'>
+    <div className='modal'>
         Modal
     </div>
