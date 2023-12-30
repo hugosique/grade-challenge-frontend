@@ -1,21 +1,28 @@
-import React, { MouseEvent , Component } from 'react';
+import { Component } from 'react';
+// Styles
 import '../styles/Dialog.scss';
-import Button from 'react-bootstrap/Button';
+// Components
 import Modal from 'react-bootstrap/Modal';
-
-import { DialogState } from '../interfaces/dialogState.model';
+import GradeButton from './GradeButton';
+// Interfaces
+import { IDialogState, IDialogProps } from '../interfaces/dialog.model';
+// Icons
 import PlusIcon from '../assets/icons/Plus.svg';
+import CloseIcon from '../assets/icons/Close.svg';
 
-export default class Dialog extends Component<{}, DialogState> {
-    constructor(props: {}) {
+export default class Dialog extends Component<IDialogProps, IDialogState> {
+    constructor(props: IDialogProps) {
         super(props);
         
         this.state = {
-          show: false
+          show: false,
+          inputValue: '',
         };
 
         this.handleClose = this.handleClose.bind(this);
         this.handleShow = this.handleShow.bind(this);
+        this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleConfirm = this.handleConfirm.bind(this);
     }
 
     handleClose() {
@@ -26,12 +33,31 @@ export default class Dialog extends Component<{}, DialogState> {
         this.setState({ show: true });
     }
 
+    handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
+        const inputValue = event.target.value;
+
+        if (/^(10(\.0{0,1})?|[0-9](\.\d{0,1})?)$/.test(inputValue) || inputValue === '') {
+          this.setState({ inputValue });
+        }
+    }
+    
+    handleConfirm() {
+        const inputValueAsFloat = parseFloat(this.state.inputValue);
+
+        if (!isNaN(inputValueAsFloat) && inputValueAsFloat >= 0 && inputValueAsFloat <= 10) {
+            // Faça algo com o valor, por exemplo, enviar para o servidor ou atualizar o estado
+            console.log('Valor válido:', inputValueAsFloat);
+        } else {
+            alert('Por favor, insira um valor válido entre 0 e 10.');
+        }
+    }
+
     render() {
-        const { show } = this.state;
+        const { show, inputValue } = this.state;
 
         return (
                 <>
-                <button className='btn-dialog' onClick={this.handleShow}>
+                <button className='btn-dialog add' onClick={this.handleShow}>
                     <span>Adicionar</span>
                     <img src={PlusIcon} alt="Icon" />
                 </button>
@@ -40,17 +66,36 @@ export default class Dialog extends Component<{}, DialogState> {
                     centered={true}
                     show={show} 
                     onHide={this.handleClose} 
-                    backdrop="static" 
+                    
                     keyboard={false}
+                    className="custom-modal"
                     >
                     <Modal.Header closeButton>
-                    <Modal.Title>Modal heading</Modal.Title>
+                        <Modal.Title>Bimestre {this.props.bimesterNumber}</Modal.Title>
+                        <button className='close-button' onClick={this.handleClose}>
+                            <img src={CloseIcon} alt="Icon" />
+                        </button>
                     </Modal.Header>
-                    <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
+                    <Modal.Body>
+                        <div className='form'>
+                            <h1>Disciplina</h1>
+                            <div className='form__grades'>
+                                <GradeButton name='Biologia'/>
+                                <GradeButton name='Arte'/>
+                                <GradeButton name='Geografia'/>
+                                <GradeButton name='Sociologia'/>
+                            </div>
+                            <h2>Nota</h2>
+                            <input 
+                                type='text'
+                                value={inputValue}
+                                onChange={this.handleInputChange}/>
+                        </div>
+                    </Modal.Body>
                     <Modal.Footer>
-                    <Button variant="primary" onClick={this.handleClose}>
-                        Save Changes
-                    </Button>
+                        <button className='btn-dialog'>
+                            <span>Confirmar</span>
+                        </button>
                     </Modal.Footer>
                 </Modal>
                 </>

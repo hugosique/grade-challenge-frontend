@@ -1,0 +1,21 @@
+@import './scss/variables';
+
+.grade-button {
+    width: 100px;
+    height: 43px;
+    border: none;
+    outline: 0;
+    background: red;
+    border-radius: 15px;
+    color: $text-color;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+@media (max-width: 400px) {
+    .grade-button {
+        width: 70px;
+        height: 43px;
+        font-size: 12px;
+    }
+}

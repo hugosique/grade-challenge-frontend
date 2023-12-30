@@ -1,14 +1,18 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
+// Components
 import Grade from './Grade';
 import Dialog from './Dialog';
 import { Container, Row, Col } from 'react-bootstrap';
+// Styles
 import '../styles/Bimester.scss';
+// Interfaces
+import {IBimesterProps} from '../interfaces/bimester.model'
 
-interface BimesterProps {
-  number?: number;
-}
+export default class Bimester extends Component<IBimesterProps> {
 
-export default class Bimester extends Component<BimesterProps> {
+  constructor(props: IBimesterProps) {
+    super(props)
+  }
 
   render() {
     const {number} = this.props;
@@ -17,8 +21,8 @@ export default class Bimester extends Component<BimesterProps> {
       <Container>
         <div className='bimester'>
           <div className='bimester__header'>
-            <h1>Bimestre {number}</h1>
-            <Dialog />
+            <h1>Bimestre {this.props.number}</h1>
+            <Dialog bimesterNumber={number}/>
           </div>
 
           <div className='bimester__grades'>
