@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import Grade from './Grade';
+import Dialog from './Dialog';
 import { Container, Row, Col } from 'react-bootstrap';
 import '../styles/Bimester.scss';
-
-import PlusIcon from '../assets/icons/Plus.svg';
 
 export default class Bimester extends Component {
   render() {
@@ -12,10 +11,7 @@ export default class Bimester extends Component {
         <div className='bimester'>
           <div className='bimester__header'>
             <h1>Bimestre 1</h1>
-            <button>
-              <span>Adicionar</span>
-              <img src={PlusIcon} alt="Icon" />
-            </button>
+            <Dialog />
           </div>
 
           <div className='bimester__grades'>

@@ -5,8 +5,8 @@
     align-items: start;
 
     &__content {
-        width: 157px;
-        height: 146px;
+        width: 137px;
+        height: 126px;
         border-radius: 20px;
         background: $art-grade;
         padding: 1rem 0;
@@ -52,6 +52,7 @@
     }
 
     img {
-        margin-left: .5rem;
+        height: 28px;
+        width: 28px;
     }
 }

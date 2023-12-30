@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 import { DialogState } from '../interfaces/dialogState.model';
+import PlusIcon from '../assets/icons/Plus.svg';
 
 export default class Dialog extends Component<{}, DialogState> {
     constructor(props: {}) {
@@ -29,9 +30,10 @@ export default class Dialog extends Component<{}, DialogState> {
 
         return (
                 <>
-                <Button variant="primary" onClick={this.handleShow}>
-                    Launch demo modal
-                </Button>
+                <button className='btn-dialog' onClick={this.handleShow}>
+                    <span>Adicionar</span>
+                    <img src={PlusIcon} alt="Icon" />
+                </button>
 
                 <Modal
                     centered={true}

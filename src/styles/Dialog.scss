@@ -1,1 +1,32 @@
 @import './scss/variables';
+
+.btn-dialog {
+    display: flex;
+    width: 183px;
+    height: 37px;
+    padding: 16px 32px;
+    justify-content: center;
+    align-items: center;
+    background: $button-color;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0px 20px 60px 0px rgba(0, 0, 0, 0.08);
+
+    span {
+        margin-right: .2rem;
+    }
+
+    img {
+        height: 25px;
+        width: 25px;
+    }
+}
+
+@media (max-width: 770px) {
+    .btn-dialog {
+        width: 83px;
+        span {
+            display: none;
+        }
+    }
+}

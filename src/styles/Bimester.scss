@@ -3,13 +3,14 @@
 .bimester {
     background: $bg-color;
     text-align: start;
-    padding: 1rem;
+    padding: .5rem 0;
+    
 
     &__header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
 
         h1 {
             color: $text-color;
@@ -17,19 +18,6 @@
             font-style: normal;
             font-weight: 500;
             line-height: 18px;
-        }
-
-        button {
-            display: flex;
-            width: 183px;
-            height: 37px;
-            padding: 16px 32px;
-            justify-content: center;
-            align-items: center;
-            background: $button-color;
-            border: none;
-            border-radius: 12px;
-            box-shadow: 0px 20px 60px 0px rgba(0, 0, 0, 0.08);
         }
     }
 

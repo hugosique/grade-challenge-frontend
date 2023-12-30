@@ -8,5 +8,5 @@ export default (props: any) =>
         <Bimester />
         <Bimester />
         <Bimester />
-        <Dialog />
+        {/* <Dialog /> */}
     </div>
