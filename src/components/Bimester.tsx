@@ -4,13 +4,20 @@ import Dialog from './Dialog';
 import { Container, Row, Col } from 'react-bootstrap';
 import '../styles/Bimester.scss';
 
-export default class Bimester extends Component {
+interface BimesterProps {
+  number?: number;
+}
+
+export default class Bimester extends Component<BimesterProps> {
+
   render() {
+    const {number} = this.props;
+
     return (
       <Container>
         <div className='bimester'>
           <div className='bimester__header'>
-            <h1>Bimestre 1</h1>
+            <h1>Bimestre {number}</h1>
             <Dialog />
           </div>
 

@@ -1,12 +1,10 @@
 import '../styles/BimesterGrid.scss';
 import Bimester from './Bimester';
-import Dialog from './Dialog';
 
 export default (props: any) =>
     <div className='bimesterGrid'>
-        <Bimester />
-        <Bimester />
-        <Bimester />
-        <Bimester />
-        {/* <Dialog /> */}
+        <Bimester number={1}/>
+        <Bimester number={2}/>
+        <Bimester number={3}/>
+        <Bimester number={4}/>
     </div>

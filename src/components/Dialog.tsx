@@ -9,6 +9,7 @@ import PlusIcon from '../assets/icons/Plus.svg';
 export default class Dialog extends Component<{}, DialogState> {
     constructor(props: {}) {
         super(props);
+        
         this.state = {
           show: false
         };
