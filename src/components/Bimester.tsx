@@ -17,7 +17,7 @@ export default (props: any) =>
             </div>
 
             <div className='bimester__grades'>
-                <Row className='g-3'>
+                <Row className='g-5'>
                     <Col xs={6} md={3} className='col'>
                         <Grade />
                     </Col>

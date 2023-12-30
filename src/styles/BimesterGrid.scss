@@ -1,5 +1,7 @@
 @import './scss/variables';
 
-.bimesterGrid {
-    
+@media (max-width: 4098px) {
+    .bimesterGrid {
+        padding: 5rem 0;
+    }
 }
