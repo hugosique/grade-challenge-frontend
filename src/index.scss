@@ -1,0 +1,21 @@
+@font-face {
+  font-family: MontSerrat;
+  src: url('./fonts/Montserrat-Regular.ttf');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'MontSerrat', monospace;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 90vh;
+  color: #fff;
+  background: linear-gradient(to right, #3CA55C, #B5AC49);
+}

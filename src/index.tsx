@@ -1,15 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import './index.scss';
+import Bimester from './components/Bimester';
+import BimesterGrid from './components/BimesterGrid';
 import reportWebVitals from './reportWebVitals';
+import App from './App';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <BimesterGrid>
+        <Bimester />
+    </BimesterGrid>
   </React.StrictMode>
 );
 

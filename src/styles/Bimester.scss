@@ -1,0 +1,18 @@
+@import './scss/variables';
+
+.bimester {
+    background: $bg-color;
+    width: 800px;
+    height: 120px;
+    text-align: start;
+
+    h1 {
+        font-size: 1rem;
+        font-weight: 400;
+    }
+
+    &__grades {
+        display: flex;
+        justify-content: space-around;
+    }
+}
