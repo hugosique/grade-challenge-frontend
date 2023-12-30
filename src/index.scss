@@ -11,11 +11,12 @@
 }
 
 body {
+  //margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  height: 90vh;
-  color: #fff;
-  background: linear-gradient(to right, #3CA55C, #B5AC49);
+  min-height: 100vh;
+  background-color: #0F0F0F !important;
 }
+

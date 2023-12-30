@@ -4,7 +4,8 @@ import './index.scss';
 import Bimester from './components/Bimester';
 import BimesterGrid from './components/BimesterGrid';
 import reportWebVitals from './reportWebVitals';
-import App from './App';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
