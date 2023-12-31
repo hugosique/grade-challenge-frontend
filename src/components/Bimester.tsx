@@ -63,18 +63,6 @@ export default class Bimester extends Component<IBimesterProps, IBimesterState> 
                   </Col>
                 ))
               }
-              {/* <Col xs={6} md={3} className='col'>
-                <Grade name='Biologia' color='#CC4090' createdDate='28/04/2022'/>
-              </Col>
-              <Col xs={6} md={3} className='col'>
-                <Grade name='Artes' color='#05A2C2' createdDate='28/08/2022'/>
-              </Col>
-              <Col xs={6} md={3} className='col'>
-                <Grade name='Geografia' color='#C26719' createdDate='31/12/2022'/>
-              </Col>
-              <Col xs={6} md={3} className='col'>
-                <Grade name='Sociologia' color='#9B19C2' createdDate='01/03/2022'/>
-              </Col> */}
             </Row>
           </div>
         </div>

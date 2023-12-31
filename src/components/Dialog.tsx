@@ -13,7 +13,6 @@ import CloseIcon from '../assets/icons/Close.svg';
 export default class Dialog extends Component<IDialogProps, IDialogState> {
     constructor(props: IDialogProps) {
         super(props);
-        console.log(props)
         
         this.state = {
           show: false,
@@ -32,7 +31,6 @@ export default class Dialog extends Component<IDialogProps, IDialogState> {
 
     handleShow() {
         this.setState({ show: true });
-        console.log(this.props)
     }
 
     handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
