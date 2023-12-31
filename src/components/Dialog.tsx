@@ -13,6 +13,7 @@ import CloseIcon from '../assets/icons/Close.svg';
 export default class Dialog extends Component<IDialogProps, IDialogState> {
     constructor(props: IDialogProps) {
         super(props);
+        console.log(props)
         
         this.state = {
           show: false,
@@ -31,6 +32,7 @@ export default class Dialog extends Component<IDialogProps, IDialogState> {
 
     handleShow() {
         this.setState({ show: true });
+        console.log(this.props)
     }
 
     handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
@@ -66,7 +68,6 @@ export default class Dialog extends Component<IDialogProps, IDialogState> {
                     centered={true}
                     show={show} 
                     onHide={this.handleClose} 
-                    
                     keyboard={false}
                     className="custom-modal"
                     >
@@ -80,10 +81,10 @@ export default class Dialog extends Component<IDialogProps, IDialogState> {
                         <div className='form'>
                             <h1>Disciplina</h1>
                             <div className='form__grades'>
-                                <GradeButton name='Biologia'/>
-                                <GradeButton name='Arte'/>
-                                <GradeButton name='Geografia'/>
-                                <GradeButton name='Sociologia'/>
+                                <GradeButton name={this.props.gradeData[0].name} color={this.props.gradeData[0].color}/>
+                                <GradeButton name={this.props.gradeData[1].name} color={this.props.gradeData[1].color}/>
+                                <GradeButton name={this.props.gradeData[2].name} color={this.props.gradeData[2].color}/>
+                                <GradeButton name={this.props.gradeData[3].name} color={this.props.gradeData[3].color}/>
                             </div>
                             <h2>Nota</h2>
                             <input 
