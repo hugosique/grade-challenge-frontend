@@ -51,8 +51,15 @@
         }
     }
 
-    img {
-        height: 28px;
-        width: 28px;
+    &__btn-delete {
+        background: none;
+        border: none;
+        height: auto;
+        width: auto;
+        
+        img {
+            height: 28px;
+            width: 28px;
+        }
     }
 }

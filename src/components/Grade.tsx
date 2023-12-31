@@ -16,5 +16,7 @@ export default (props: any) =>
             </div>
         </div>
 
-        <img src={TrashIcon} alt="TrashIcon" />
+        <button className='grade__btn-delete'>
+            <img src={TrashIcon} alt="TrashIcon" />
+        </button>
     </div>
