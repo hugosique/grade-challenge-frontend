@@ -3,7 +3,7 @@ import { Component } from 'react';
 import '../styles/Dialog.scss';
 // Components
 import Modal from 'react-bootstrap/Modal';
-import GradeButton from './GradeButton';
+import Form from './Form';
 // Interfaces
 import { IDialogState, IDialogProps } from '../interfaces/dialog.model';
 // Icons
@@ -22,7 +22,7 @@ export default class Dialog extends Component<IDialogProps, IDialogState> {
 
         this.handleClose = this.handleClose.bind(this);
         this.handleShow = this.handleShow.bind(this);
-        this.handleInputChange = this.handleInputChange.bind(this);
+        // this.handleInputChange = this.handleInputChange.bind(this);
         this.handleConfirm = this.handleConfirm.bind(this);
     }
 
@@ -34,13 +34,13 @@ export default class Dialog extends Component<IDialogProps, IDialogState> {
         this.setState({ show: true });
     }
 
-    handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
-        const inputValue = event.target.value;
+    // handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
+    //     const inputValue = event.target.value;
 
-        if (/^(10(\.0{0,1})?|[0-9](\.\d{0,1})?)$/.test(inputValue) || inputValue === '') {
-          this.setState({ inputValue });
-        }
-    }
+    //     if (/^(10(\.0{0,1})?|[0-9](\.\d{0,1})?)$/.test(inputValue) || inputValue === '') {
+    //       this.setState({ inputValue });
+    //     }
+    // }
     
     handleConfirm() {
         const inputValueAsFloat = parseFloat(this.state.inputValue);
@@ -77,20 +77,21 @@ export default class Dialog extends Component<IDialogProps, IDialogState> {
                         </button>
                     </Modal.Header>
                     <Modal.Body>
-                        <div className='form'>
+                        <Form {...this.props} />
+                        {/* <div className='form'>
                             <h1>Disciplina</h1>
                             <div className='form__grades'>
-                                <GradeButton name='Biologia' color='#CC4090'/>
-                                <GradeButton name='Artes' color='#05A2C2'/>
-                                <GradeButton name='Geografia' color='#C26719'/>
-                                <GradeButton name='Sociologia' color='#9B19C2'/>
+                                <Form name='Biologia' color='#CC4090'/>
+                                <Form name='Artes' color='#05A2C2'/>
+                                <Form name='Geografia' color='#C26719'/>
+                                <Form name='Sociologia' color='#9B19C2'/>
                             </div>
                             <h2>Nota</h2>
                             <input 
                                 type='text'
                                 value={inputValue}
                                 onChange={this.handleInputChange}/>
-                        </div>
+                        </div> */}
                     </Modal.Body>
                     <Modal.Footer>
                         <button className='btn-dialog'>

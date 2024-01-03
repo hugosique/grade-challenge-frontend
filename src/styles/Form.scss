@@ -1,6 +1,6 @@
 @import './scss/variables';
 
-.grade-button {
+.btn-grade {
     width: 100px;
     height: 43px;
     border: none;
@@ -12,8 +12,12 @@
     font-size: 18px;
 }
 
+.selected {
+    border: solid 1px $text-color !important;
+}
+
 @media (max-width: 400px) {
-    .grade-button {
+    .btn-grade {
         width: 70px;
         height: 43px;
         font-size: 12px;
