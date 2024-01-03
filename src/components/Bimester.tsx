@@ -43,7 +43,7 @@ export default class Bimester extends Component<IBimesterProps, IBimesterState> 
             <Row className='g-5'>
               {grades.map((grade, index) => (
                   <Col key={index} xs={6} md={3} className='col'>
-                    <Grade {...grade} color={gradeData[index].color}/>
+                    <Grade {...grade} color={gradeData.find(e => e.name === grade.disciplina)?.color}/>
                   </Col>
                 ))
               }

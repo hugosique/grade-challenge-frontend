@@ -13,8 +13,6 @@ import CloseIcon from '../assets/icons/Close.svg';
 export default class Dialog extends Component<IDialogProps, IDialogState> {
     constructor(props: IDialogProps) {
         super(props);
-        
-        console.log(props.gradeData)
 
         this.state = {
           show: false,
