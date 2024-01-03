@@ -37,7 +37,7 @@ export default class Bimester extends Component<IBimesterProps, IBimesterState> 
       const data = response.data;
 
       // Atualizar o estado com as notas
-      this.setState({ grades: data });
+      //this.setState({ grades: data });
     } catch (error) {
       console.error('Erro ao buscar notas:', error);
     }

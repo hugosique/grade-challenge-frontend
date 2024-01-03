@@ -1,10 +1,53 @@
+import { Component } from 'react';
 import '../styles/BimesterGrid.scss';
 import Bimester from './Bimester';
+import { IBimesterGridProps, IBimesterGridState } from '../interfaces/bimesterGrid.model';
+import { ApiService } from '../services/api.service';
 
-export default (props: any) =>
-    <div className='bimesterGrid'>
-        <Bimester number={1}/>
-        {/* <Bimester number={2}/>
-        <Bimester number={3}/>
-        <Bimester number={4}/> */}
-    </div>
+export default class BimesterGrid extends Component<IBimesterGridProps, IBimesterGridState> {
+    constructor(props: IBimesterGridProps) {
+        super(props);
+
+        this.state = {
+            bimesterData: {}
+        }
+    }
+
+    componentDidMount() {
+        this.fetchGrades();
+    }
+    
+    fetchGrades = async () => {
+        try {
+          const response = await ApiService.listAll();
+          const data = response.data.result;
+
+          const organizedData: { [key: string]: any[] } = {};
+
+          data.forEach((item: any) => {
+            const { bimestre } = item;
+            if (!organizedData[bimestre]) {
+              organizedData[bimestre] = [];
+            }
+            organizedData[bimestre].push(item);
+          });
+
+          this.setState({ bimesterData: organizedData });
+        } catch (error) {
+          console.error('Erro ao buscar notas:', error);
+        }
+    };
+
+    render() {
+        const { bimesterData } = this.state;
+        console.log(bimesterData['PRIMEIRO'])
+
+        return (
+            <div className='bimesterGrid'>
+                {Object.keys(bimesterData).map((bimestre, index) => (
+                    <Bimester number={index + 1} data={bimesterData[bimestre]} />
+                ))}
+            </div>
+        );
+    }
+}
