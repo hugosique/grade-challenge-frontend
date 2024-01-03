@@ -1,11 +1,12 @@
 export interface IFormProps {
-
+    bimesterNumber: number;
+    gradeData: any;
 }
 
 export interface IFormState {
-    biologyInputValue: string;
-    artInputValue: string;
-    geographyInputValue: string;
-    sociologyInputValue: string;
+    biologiaInputValue: string;
+    artesInputValue: string;
+    geografiaInputValue: string;
+    sociologiaInputValue: string;
     selectedGrade: string;
 }
