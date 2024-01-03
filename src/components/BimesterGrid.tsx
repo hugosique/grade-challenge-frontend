@@ -3,6 +3,7 @@ import '../styles/BimesterGrid.scss';
 import Bimester from './Bimester';
 import { IBimesterGridProps, IBimesterGridState } from '../interfaces/bimesterGrid.model';
 import { ApiService } from '../services/api.service';
+import { getBimesterNumber } from '../helpers/getBimesterNumber';
 
 export default class BimesterGrid extends Component<IBimesterGridProps, IBimesterGridState> {
     constructor(props: IBimesterGridProps) {
@@ -46,7 +47,7 @@ export default class BimesterGrid extends Component<IBimesterGridProps, IBimeste
                 {Object.keys(bimesterData).map((bimestre, index) => (
                     <Bimester
                         key={bimestre}
-                        number={index + 1} 
+                        number={getBimesterNumber(bimestre)} 
                         data={bimesterData[bimestre]}
                         fetchGrades={this.fetchGrades}
                     />
