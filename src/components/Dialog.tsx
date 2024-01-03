@@ -45,7 +45,7 @@ export default class Dialog extends Component<IDialogProps, IDialogState> {
         const inputValueAsFloat = parseFloat(this.state.inputValue);
 
         if (!isNaN(inputValueAsFloat) && inputValueAsFloat >= 0 && inputValueAsFloat <= 10) {
-            // Faça algo com o valor, por exemplo, enviar para o servidor ou atualizar o estado
+            
             console.log('Valor válido:', inputValueAsFloat);
         } else {
             alert('Por favor, insira um valor válido entre 0 e 10.');
@@ -79,10 +79,10 @@ export default class Dialog extends Component<IDialogProps, IDialogState> {
                         <div className='form'>
                             <h1>Disciplina</h1>
                             <div className='form__grades'>
-                                <GradeButton name={this.props.gradeData[0].name} color={this.props.gradeData[0].color}/>
+                                {/* <GradeButton name={this.props.gradeData[0].name} color={this.props.gradeData[0].color}/>
                                 <GradeButton name={this.props.gradeData[1].name} color={this.props.gradeData[1].color}/>
                                 <GradeButton name={this.props.gradeData[2].name} color={this.props.gradeData[2].color}/>
-                                <GradeButton name={this.props.gradeData[3].name} color={this.props.gradeData[3].color}/>
+                                <GradeButton name={this.props.gradeData[3].name} color={this.props.gradeData[3].color}/> */}
                             </div>
                             <h2>Nota</h2>
                             <input 

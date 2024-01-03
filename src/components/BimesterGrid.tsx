@@ -40,7 +40,6 @@ export default class BimesterGrid extends Component<IBimesterGridProps, IBimeste
 
     render() {
         const { bimesterData } = this.state;
-        console.log(bimesterData['PRIMEIRO'])
 
         return (
             <div className='bimesterGrid'>

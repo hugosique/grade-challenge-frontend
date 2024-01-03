@@ -3,7 +3,11 @@ export interface IGrade {
 }
 
 export interface IGradeProps {
-    name: string;
+    atualizadoEm: string;
+    bimestre: string;
+    criadoEm: string;
+    disciplina: string;
+    id: number;
+    nota: number;
     color: string;
-    createdDate: string;
 }

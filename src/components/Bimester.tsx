@@ -11,10 +11,10 @@ import {IBimesterProps, IBimesterState} from '../interfaces/bimester.model';
 import { ApiService } from '../services/api.service';
 
 const gradeData = [
-  { name: 'Biologia', color: '#CC4090', createdDate: '28/04/2022' },
-  { name: 'Artes', color: '#05A2C2', createdDate: '28/08/2022' },
-  { name: 'Geografia', color: '#C26719', createdDate: '31/12/2022' },
-  { name: 'Sociologia', color: '#9B19C2', createdDate: '01/03/2022' },
+  { name: 'Biologia', color: '#CC4090'},
+  { name: 'Artes', color: '#05A2C2'},
+  { name: 'Geografia', color: '#C26719'},
+  { name: 'Sociologia', color: '#9B19C2'},
 ];
 
 export default class Bimester extends Component<IBimesterProps, IBimesterState> {
@@ -23,43 +23,29 @@ export default class Bimester extends Component<IBimesterProps, IBimesterState> 
     super(props)
 
     this.state = {
-      grades: []
+      grades: props.data || [],
     }
   }
-
-  componentDidMount() {
-    this.fetchGrades();
-  }
-
-  fetchGrades = async () => {
-    try {
-      const response = await ApiService.listAll();
-      const data = response.data;
-
-      // Atualizar o estado com as notas
-      //this.setState({ grades: data });
-    } catch (error) {
-      console.error('Erro ao buscar notas:', error);
-    }
-  };
 
   render() {
-    const {number} = this.props;
+    const {number, data } = this.props;
     const { grades } = this.state;
+
+    console.log(grades)
 
     return (
       <Container>
         <div className='bimester'>
           <div className='bimester__header'>
-            <h1>Bimestre {this.props.number}</h1>
-            <Dialog bimesterNumber={number} gradeData={gradeData}/>
+            <h1>Bimestre {number}</h1>
+            <Dialog bimesterNumber={number} gradeData={data} gradeConst={gradeData}/>
           </div>
 
           <div className='bimester__grades'>
             <Row className='g-5'>
-              {gradeData.map((grade, index) => (
+              {grades.map((grade, index) => (
                   <Col key={index} xs={6} md={3} className='col'>
-                    <Grade {...grade} />
+                    <Grade {...grade} color={gradeData[index].color}/>
                   </Col>
                 ))
               }
