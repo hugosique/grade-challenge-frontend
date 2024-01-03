@@ -11,6 +11,7 @@
         justify-content: space-between;
         align-items: center;
         margin-bottom: 1rem;
+        min-width: 500px;
 
         h1 {
             color: $text-color;
@@ -26,5 +27,11 @@
             display: flex;
             justify-content: center;
         }
+    }
+}
+
+@media (max-width: 770px) {
+    .bimester__header {
+        min-width: 270px;
     }
 }
