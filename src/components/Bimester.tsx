@@ -31,14 +31,12 @@ export default class Bimester extends Component<IBimesterProps, IBimesterState> 
     const {number, data } = this.props;
     const { grades } = this.state;
 
-    console.log(grades)
-
     return (
       <Container>
         <div className='bimester'>
           <div className='bimester__header'>
             <h1>Bimestre {number}</h1>
-            <Dialog bimesterNumber={number} gradeData={data} gradeConst={gradeData}/>
+            <Dialog bimesterNumber={number} gradeData={data}/>
           </div>
 
           <div className='bimester__grades'>

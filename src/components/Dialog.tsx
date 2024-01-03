@@ -14,6 +14,8 @@ export default class Dialog extends Component<IDialogProps, IDialogState> {
     constructor(props: IDialogProps) {
         super(props);
         
+        console.log(props.gradeData[0])
+
         this.state = {
           show: false,
           inputValue: '',
@@ -79,10 +81,10 @@ export default class Dialog extends Component<IDialogProps, IDialogState> {
                         <div className='form'>
                             <h1>Disciplina</h1>
                             <div className='form__grades'>
-                                {/* <GradeButton name={this.props.gradeData[0].name} color={this.props.gradeData[0].color}/>
-                                <GradeButton name={this.props.gradeData[1].name} color={this.props.gradeData[1].color}/>
-                                <GradeButton name={this.props.gradeData[2].name} color={this.props.gradeData[2].color}/>
-                                <GradeButton name={this.props.gradeData[3].name} color={this.props.gradeData[3].color}/> */}
+                                <GradeButton name='Biologia' color='#CC4090'/>
+                                <GradeButton name='Artes' color='#05A2C2'/>
+                                <GradeButton name='Geografia' color='#C26719'/>
+                                <GradeButton name='Sociologia' color='#9B19C2'/>
                             </div>
                             <h2>Nota</h2>
                             <input 

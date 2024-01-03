@@ -6,5 +6,4 @@ export interface IDialogState {
 export interface IDialogProps {
     bimesterNumber: number;
     gradeData: any;
-    gradeConst: any;
 }
