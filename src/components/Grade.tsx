@@ -22,6 +22,7 @@ export default class Grade extends Component<IGradeProps, {}> {
         this.props.fetchGrades();
 
         console.log('Item deletado com sucesso:', deleteResponse);
+        window.location.reload();
     } catch (error) {
         console.error('Erro ao deletar item:', error);
     };
