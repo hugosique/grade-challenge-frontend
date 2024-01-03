@@ -14,11 +14,12 @@ export default class Dialog extends Component<IDialogProps, IDialogState> {
     constructor(props: IDialogProps) {
         super(props);
         
-        console.log(props.gradeData[0])
+        console.log(props.gradeData)
 
         this.state = {
           show: false,
           inputValue: '',
+          selectedGrade: undefined,
         };
 
         this.handleClose = this.handleClose.bind(this);
@@ -47,7 +48,7 @@ export default class Dialog extends Component<IDialogProps, IDialogState> {
         const inputValueAsFloat = parseFloat(this.state.inputValue);
 
         if (!isNaN(inputValueAsFloat) && inputValueAsFloat >= 0 && inputValueAsFloat <= 10) {
-            
+            // Chamkado
             console.log('Valor válido:', inputValueAsFloat);
         } else {
             alert('Por favor, insira um valor válido entre 0 e 10.');
