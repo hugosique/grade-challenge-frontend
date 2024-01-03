@@ -44,7 +44,12 @@ export default class BimesterGrid extends Component<IBimesterGridProps, IBimeste
         return (
             <div className='bimesterGrid'>
                 {Object.keys(bimesterData).map((bimestre, index) => (
-                    <Bimester number={index + 1} data={bimesterData[bimestre]} />
+                    <Bimester
+                        key={bimestre}
+                        number={index + 1} 
+                        data={bimesterData[bimestre]}
+                        fetchGrades={this.fetchGrades}
+                    />
                 ))}
             </div>
         );

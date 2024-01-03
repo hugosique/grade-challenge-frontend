@@ -13,5 +13,17 @@ export const ApiService = {
         } catch (error) {
             throw error;
         };
+    },
+
+    deleteGrade: async (id: number): Promise<AxiosResponse<void>> => {
+        const endpoint = `/result`;
+        const url = `${API_BASE_URL}${endpoint}/${id}`;
+
+        try {
+            const response = await axios.delete<void>(url);
+            return response;
+        } catch (error) {
+            throw error;
+        };
     }
 }

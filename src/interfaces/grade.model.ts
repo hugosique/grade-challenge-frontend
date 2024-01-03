@@ -10,4 +10,5 @@ export interface IGradeProps {
     id: number;
     nota: number;
     color: string;
+    fetchGrades: any;
 }
