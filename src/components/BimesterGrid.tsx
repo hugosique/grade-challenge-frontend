@@ -10,7 +10,8 @@ export default class BimesterGrid extends Component<IBimesterGridProps, IBimeste
         super(props);
 
         this.state = {
-            bimesterData: {}
+            bimesterData: {},
+            isFetching: true,
         }
     }
 
@@ -33,25 +34,34 @@ export default class BimesterGrid extends Component<IBimesterGridProps, IBimeste
             organizedData[bimestre].push(item);
           });
 
-          this.setState({ bimesterData: organizedData });
+          console.log(organizedData)
+
+          this.setState({ bimesterData: organizedData, isFetching: false });
         } catch (error) {
           console.error('Erro ao buscar notas:', error);
         }
     };
 
     render() {
-        const { bimesterData } = this.state;
+        const { bimesterData, isFetching } = this.state;
+        const allBimesters = ['PRIMEIRO', 'SEGUNDO', 'TERCEIRO', 'QUARTO'];
+
 
         return (
             <div className='bimesterGrid'>
-                {Object.keys(bimesterData).map((bimestre, index) => (
-                    <Bimester
-                        key={bimestre}
-                        number={getBimesterNumber(bimestre)} 
-                        data={bimesterData[bimestre]}
-                        fetchGrades={this.fetchGrades}
-                    />
-                ))}
+                {isFetching ? (   
+                    <p>Carregando...</p>
+                ) : (
+                    // Renderizar os componentes Bimester após a conclusão do fetchGrades
+                    allBimesters.map((bimestre, index) => (
+                        <Bimester
+                            key={bimestre}
+                            number={getBimesterNumber(bimestre)} 
+                            data={bimesterData[bimestre]}
+                            fetchGrades={this.fetchGrades}
+                        />
+                    ))
+                )}
             </div>
         );
     }

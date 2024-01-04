@@ -10,6 +10,7 @@ import { getBimesterString } from '../helpers/getBimesterString';
 export default class Form extends Component<IFormProps, IFormState> {
     constructor(props: IFormProps) {
         super(props)
+        console.log(props)
 
         this.state = {
             biologiaInputValue: this.getGradeValue('Biologia'),
@@ -25,6 +26,10 @@ export default class Form extends Component<IFormProps, IFormState> {
 
     getGradeValue(grade: string): string {
         const { gradeData } = this.props;
+
+        if (!gradeData) {
+            return '';
+        };
 
         const subjectData = gradeData.find((data: any) => data.disciplina === grade);
         return subjectData ? String(subjectData.nota) : '';
