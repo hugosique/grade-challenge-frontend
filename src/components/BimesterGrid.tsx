@@ -34,8 +34,6 @@ export default class BimesterGrid extends Component<IBimesterGridProps, IBimeste
             organizedData[bimestre].push(item);
           });
 
-          console.log(organizedData)
-
           this.setState({ bimesterData: organizedData, isFetching: false });
         } catch (error) {
           console.error('Erro ao buscar notas:', error);

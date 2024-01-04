@@ -10,7 +10,6 @@ import { getBimesterString } from '../helpers/getBimesterString';
 export default class Form extends Component<IFormProps, IFormState> {
     constructor(props: IFormProps) {
         super(props)
-        console.log(props)
 
         this.state = {
             biologiaInputValue: this.getGradeValue('Biologia'),
@@ -50,9 +49,10 @@ export default class Form extends Component<IFormProps, IFormState> {
     }
 
     handleConfirm = async () => {
-        const { selectedGrade } = this.state;
+        const disciplinesWithNotes = this.props.gradeData ? 
+            this.props.gradeData.map((grade: any) => grade.disciplina) :
+            [] ;
 
-        const disciplinesWithNotes = this.props.gradeData.map((grade: any) => grade.disciplina);
         const disciplinesToCreate = ['Biologia', 'Artes', 'Geografia', 'Sociologia'].filter(
             disciplina => !disciplinesWithNotes.includes(disciplina)
         );
