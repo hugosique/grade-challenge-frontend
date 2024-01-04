@@ -21,7 +21,6 @@ export default class Bimester extends Component<IBimesterProps, IBimesterState> 
 
   constructor(props: IBimesterProps) {
     super(props)
-    //console.log(props)
 
     this.state = {
       grades: props.data || [],

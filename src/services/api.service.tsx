@@ -25,5 +25,25 @@ export const ApiService = {
         } catch (error) {
             throw error;
         };
-    }
+    },
+
+    addGrade: async (newGrade: 
+        { 
+            bimestre: string, 
+            disciplina: string, 
+            nota: number, 
+            criadoEm: string,
+            atualizadoEm: string
+        }): Promise<AxiosResponse<{ result: any }>> => {
+            
+        const endpoint = `/result`;
+        const url = `${API_BASE_URL}${endpoint}`;
+
+        try {
+            const response = await axios.post<{ result: any }>(url, newGrade);
+            return response;
+        } catch (error) {
+            throw error;
+        }
+    },
 }

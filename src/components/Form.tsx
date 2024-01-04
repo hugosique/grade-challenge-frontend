@@ -3,6 +3,9 @@ import '../styles/Form.scss';
 import { IFormProps, IFormState } from '../interfaces/form.model';
 
 import Modal from 'react-bootstrap/Modal';
+import { ApiService } from '../services/api.service';
+import { formatDateToSQL } from '../helpers/dateUtils';
+import { getBimesterString } from '../helpers/getBimesterString';
 
 export default class Form extends Component<IFormProps, IFormState> {
     constructor(props: IFormProps) {
@@ -24,7 +27,6 @@ export default class Form extends Component<IFormProps, IFormState> {
         const { gradeData } = this.props;
 
         const subjectData = gradeData.find((data: any) => data.disciplina === grade);
-
         return subjectData ? String(subjectData.nota) : '';
     }
 
@@ -42,8 +44,47 @@ export default class Form extends Component<IFormProps, IFormState> {
         this.setState({ selectedGrade: grade });
     }
 
-    handleConfirm() {
-        console.log(this.state)
+    handleConfirm = async () => {
+        const { selectedGrade } = this.state;
+
+        const disciplinesWithNotes = this.props.gradeData.map((grade: any) => grade.disciplina);
+        const disciplinesToCreate = ['Biologia', 'Artes', 'Geografia', 'Sociologia'].filter(
+            disciplina => !disciplinesWithNotes.includes(disciplina)
+        );
+
+        if (disciplinesToCreate.length > 0) {
+            disciplinesToCreate.forEach(async el => {
+                const inputValue = 
+                    el === 'Biologia' ? this.state.biologiaInputValue :
+                    el === 'Artes' ? this.state.artesInputValue :
+                    el === 'Geografia' ? this.state.geografiaInputValue :
+                    el === 'Sociologia' ? this.state.sociologiaInputValue : 
+                    'none';
+                if(inputValue === 'none' || !inputValue) {
+                    console.log(`Preencha a nota da materia ${el}`);
+                    return;
+                }
+
+                const body = {
+                    bimestre: getBimesterString(this.props.bimesterNumber),
+                    disciplina: el,
+                    criadoEm: formatDateToSQL(new Date),
+                    atualizadoEm: formatDateToSQL(new Date),
+                    nota: Number(inputValue),
+                };
+
+                try {                
+                    const response = await ApiService.addGrade(body);
+                    console.log('Nota adicionada com sucesso:', response.data);
+    
+                    window.location.reload();
+                } catch (error) {
+                    console.error('Erro ao adicionar notas:', error);
+                }
+            });
+        } else {
+            alert('Todas as disciplinas já possuem notas cadastradas.');
+        }
     }
 
     render() {
