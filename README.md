@@ -6,13 +6,11 @@ Olá, este projeto foi feito em React e Typescript, utilizando também component
 
 A tela inicial exibe 4 bimestres (podendo estar vazios ou não) o usuário pode adicionar notas, caso elas ainda não tenham sido cadastradas, ou apagar notas que já estão cadastradas.
 
+Caso apareça a mensagem "Carregando" apenas, basta recarregar a página que os bimestres serão exibidos para adicionar as notas.
+
 A aplicação exigirá que pelo menos uma nota seja preenchida para permitir a criação, caso todas as notas estejam sem cadastro, é possível cadastrá-las todas de uma vez, mas se preferir também é possível o cadastro de uma por vez.
 
 Por enquanto ainda não é possível atualizar uma nota, se o usuário quiser substituir uma nota é preciso que ele apague a nota em questão e cadastre novamente.
-
-# Console
-
-Os logs de ações realizados pelo usuário, (como criar, apagar e etc.) serão exibidos no console, então caso algo não funcione basta olhar no console do devTools que estará logado as informações respectivas das ações tomadas na aplicação.
 
 # Getting Started with Create React App
 
